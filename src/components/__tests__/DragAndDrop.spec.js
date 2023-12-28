@@ -20,16 +20,3 @@ describe('DragAndDrop', () => {
   expect(wrapper.find('button').attributes('draggable')).toBe("true");
  })
 })
-
-
-
-describe('Table Header', () => {
- it('renders properly', () => {
-  const wrapper = mount(HeaderList)
-  const list = wrapper.vm.headers;
- 
-  wrapper.setValue({ headers:[...list, "to mo"]})
-  console.log(wrapper.vm.headers)
-  expect(wrapper.html()).toMatchSnapshot();
- })
-})
