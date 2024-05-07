@@ -2,15 +2,13 @@
 import DragAndDrop from './components/DragAndDrop.vue'
 import 'vidstack/bundle';
 import { defineCustomElement,MediaCaptionsElement, MediaVideoLayoutElement } from "vidstack/elements";
-import { onMounted ,ref} from 'vue';
+import {  ref} from 'vue';
 
 defineCustomElement(MediaVideoLayoutElement);
-const media = ref(null)
+
 
 const source = ref("https://www.youtube.com/watch?v=3XqpjLp16zA")
-onMounted(()=>{
-  console.log(MediaVideoLayoutElement)
-})
+
 </script>
 
 <template>
@@ -19,19 +17,18 @@ onMounted(()=>{
     <input type="text" class="input-box" v-model="source">
   </div>
 
- <media-player title="Sprite Fight" :src="source" autoplay>
+ <media-player title="Sprite Fight" :src="source">
   <media-provider>
-    <media-poster
-      src="https://files.vidstack.io/sprite-fight/poster.webp"
-      alt="Girl walks into campfire with gnomes surrounding her friend ready for their next meal!"
-    ></media-poster>
+    
   </media-provider>
+  <media-video-layout :thumbnails="source"  />
+
   <media-gesture event="pointerup" action="toggle:paused"></media-gesture>
   <media-gesture event="dblpointerup" action="toggle:fullscreen"></media-gesture>
   <media-gesture event="pointerup" action="toggle:controls"></media-gesture>
   <media-gesture event="dblpointerup" action="seek:-15"></media-gesture>
   <media-gesture event="dblpointerup" action="seek:15"></media-gesture>
-  <media-video-layout></media-video-layout>
+  
   
 </media-player>
 </div>
