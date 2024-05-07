@@ -7,13 +7,19 @@ import { onMounted ,ref} from 'vue';
 defineCustomElement(MediaVideoLayoutElement);
 const media = ref(null)
 
+const source = ref("https://www.youtube.com/watch?v=3XqpjLp16zA")
 onMounted(()=>{
   console.log(MediaVideoLayoutElement)
 })
 </script>
 
 <template>
- <media-player title="Sprite Fight" src="https://www.youtube.com/watch?v=57C_-iMlUCU" autoplay>
+  <div class="main">
+  <div>
+    <input type="text" class="input-box" v-model="source">
+  </div>
+
+ <media-player title="Sprite Fight" :src="source" autoplay>
   <media-provider>
     <media-poster
       src="https://files.vidstack.io/sprite-fight/poster.webp"
@@ -26,12 +32,9 @@ onMounted(()=>{
   <media-gesture event="dblpointerup" action="seek:-15"></media-gesture>
   <media-gesture event="dblpointerup" action="seek:15"></media-gesture>
   <media-video-layout></media-video-layout>
-  <media-play-button class="media-button">
-  <!-- See "Icons" component page for setup before using the following: -->
-  <media-icon type="play" class="play-icon"></media-icon>
-  <media-icon type="pause" class="pause-icon"></media-icon>
-</media-play-button>
+  
 </media-player>
+</div>
 </template>
 
 <style scoped>
@@ -40,5 +43,15 @@ media-player {
   height: 338px;
 }
 
-
+.input-box{
+  border: 5px dotted black;
+  padding: 10px 5px;
+  min-width: 600px;
+  margin-bottom: 20px;
+}
+.main{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 </style>
