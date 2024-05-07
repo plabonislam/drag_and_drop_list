@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-
+import HeaderList from './HeaderList.vue'
 const dragItem = ref(null)
 const dragOverItem = ref(null)
 
@@ -34,15 +34,12 @@ const onDragend = (e) => {
   items.value = [...copyItems]
 }
 
-const header = ['TO DO', 'IN PROGRESS', 'QA READY', 'QA', 'RELEASE READY', 'DONE']
 </script>
 <template>
   <p>Drag and drop list view</p>
-  <button disabled="true" class="bar" draggable=true>btn</button>
+  <button disabled="true" class="bar" draggable="true">btn</button>
   <table style="width: 100%">
-    <tr>
-      <th v-for="(title, index) in header" :key="index">{{ title }}</th>
-    </tr>
+    <HeaderList />
     <tr
       v-for="(item, index) in items"
       :key="index"
