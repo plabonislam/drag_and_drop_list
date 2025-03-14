@@ -1,22 +1,26 @@
 <script setup>
 import { ref } from 'vue'
 import HeaderList from './HeaderList.vue'
+
 const dragItem = ref(null)
 const dragOverItem = ref(null)
 
 const items = ref([
-  { fullname: 'first', age: 20, age: 20, age: 20, age: 20, age: 20 },
-  { fullname: 'second', age: 20, age: 20, age: 20, age: 20, age: 20 },
-  { fullname: 'third', age: 20, age: 20, age: 20, age: 20, age: 20 },
+  { fullname: 'first', age: 20 },
+  { fullname: 'second', age: 20 },
+  { fullname: 'third', age: 20 },
   {
     fullname: 'fourth',
-    age: 2000000000000000,
-    age: 2000000000000000,
-    age: 20,
-    age: 20,
-    age: 2000000000000000
+    age: 20
   }
 ])
+
+const props = defineProps({
+  title: {
+    type: String,
+    default: 'Drag and Drop List'
+  }
+})
 
 const onDragStart = (e) => {
   dragItem.value = e.target.id
@@ -36,7 +40,7 @@ const onDragend = (e) => {
 
 </script>
 <template>
-  <p>Drag and drop list view</p>
+  <p class="title">{{ props.title }}</p>
   <button disabled="true" class="bar" draggable="true">btn</button>
   <table style="width: 100%">
     <HeaderList />
@@ -51,10 +55,6 @@ const onDragend = (e) => {
       @dragend="onDragend"
     >
       <td>{{ item.fullname }}</td>
-      <td>{{ item.age }}</td>
-      <td>{{ item.age }}</td>
-      <td>{{ item.age }}</td>
-      <td>{{ item.age }}</td>
       <td>{{ item.age }}</td>
     </tr>
   </table>
