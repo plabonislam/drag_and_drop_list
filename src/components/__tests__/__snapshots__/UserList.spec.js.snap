@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`UserList > renders properly 1`] = `
+"<div><button>Fetch Users</button>
+  <!--v-if-->
+  <ul></ul>
+</div>"
+`;

@@ -8,26 +8,6 @@ exports[`DragAndDrop > renders properly 1`] = `
   <tr>
     <th>TO DO</th>
     <th>IN PROGRESS</th>
-    <th>QA READY</th>
-    <th>QA</th>
-    <th>RELEASE READY</th>
-    <th>DONE</th>
-  </tr>
-  <tr data-v-6722d57b="" id="0" draggable="true" disabled="true">
-    <td data-v-6722d57b="">first</td>
-    <td data-v-6722d57b="">20</td>
-  </tr>
-  <tr data-v-6722d57b="" id="1" draggable="true" disabled="true">
-    <td data-v-6722d57b="">second</td>
-    <td data-v-6722d57b="">20</td>
-  </tr>
-  <tr data-v-6722d57b="" id="2" draggable="true" disabled="true">
-    <td data-v-6722d57b="">third</td>
-    <td data-v-6722d57b="">20</td>
-  </tr>
-  <tr data-v-6722d57b="" id="3" draggable="true" disabled="true">
-    <td data-v-6722d57b="">fourth</td>
-    <td data-v-6722d57b="">20</td>
   </tr>
 </table>"
 `;

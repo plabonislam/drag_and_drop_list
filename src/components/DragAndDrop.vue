@@ -5,15 +5,22 @@ import HeaderList from './HeaderList.vue'
 const dragItem = ref(null)
 const dragOverItem = ref(null)
 
-const items = ref([
-  { fullname: 'first', age: 20 },
-  { fullname: 'second', age: 20 },
-  { fullname: 'third', age: 20 },
-  {
-    fullname: 'fourth',
-    age: 20
+const items = ref([])
+
+const fetchItems = async () => {
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/users')
+    const data = await response.json()
+    items.value = data.map(user => ({
+      fullname: user.name,
+      age: user.age || 20 // Assuming age is not provided in the API response
+    }))
+  } catch (error) {
+    console.error('Error fetching items:', error)
   }
-])
+}
+
+fetchItems()
 
 const props = defineProps({
   title: {

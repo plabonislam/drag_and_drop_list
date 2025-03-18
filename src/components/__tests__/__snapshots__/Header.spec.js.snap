@@ -5,9 +5,5 @@ exports[`Table Header > renders properly 1`] = `
 <tr>
   <th>TO DO</th>
   <th>IN PROGRESS</th>
-  <th>QA READY</th>
-  <th>QA</th>
-  <th>RELEASE READY</th>
-  <th>DONE</th>
 </tr>"
 `;

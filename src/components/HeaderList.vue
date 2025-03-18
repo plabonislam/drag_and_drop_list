@@ -1,6 +1,6 @@
 <script setup>
 import {ref} from 'vue'
-const headers = ['TO DO', 'IN PROGRESS', 'QA READY', 'QA', 'RELEASE READY', 'DONE']
+const headers = ['TO DO', 'IN PROGRESS']
 const t1=ref('')
 const t2=ref('')
 </script>
