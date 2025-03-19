@@ -11,7 +11,7 @@ const fetchItems = async () => {
   try {
     const response = await fetch('https://jsonplaceholder.typicode.com/users')
     const data = await response.json()
-    items.value = data.map(user => ({
+    items.value = data.map((user) => ({
       fullname: user.name,
       age: user.age || 20 // Assuming age is not provided in the API response
     }))
@@ -44,7 +44,6 @@ const onDragend = (e) => {
   copyItems.splice(dragOverItem.value, 0, dragItemContent)
   items.value = [...copyItems]
 }
-
 </script>
 <template>
   <p class="title">{{ props.title }}</p>

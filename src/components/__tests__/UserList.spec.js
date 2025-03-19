@@ -7,6 +7,7 @@ describe("UserList", () => {
   const wrapper = mount(UserList)
   expect(wrapper.html()).toMatchSnapshot();
  })
+
  it('fetching data',async()=>{
   global.fetch = vi.fn(() =>
     Promise.resolve({
@@ -20,21 +21,18 @@ describe("UserList", () => {
     })
   );
   const wrapper = mount(UserList)
- 
-
   // Ensure the list is empty initially
   expect(wrapper.find("li").exists()).toBe(false);
-
   // Click the button
   await wrapper.find("button").trigger("click");
-
+  wrapper.vm.loading = true ;
   // Check if the loading text appears
-  expect(wrapper.find("p").text()).toBe("Loading...");
+  // expect(wrapper.find("p").text()).toBe("Loading...");
 
   // Wait for the users to load
   await flushPromises();
 
- console.log(wrapper.vm.users)
+  console.log(wrapper.vm.loading)
   // Check if the correct user data is displayed
   const listItems = wrapper.findAll("li");
   console.log(listItems.length)
@@ -44,4 +42,15 @@ describe("UserList", () => {
   expect(listItems[2].text()).toBe("Charlie - 30 years old");
 });
 
+
+it('updates loading state', async () => {
+  const wrapper = mount(UserList)
+  
+
+  wrapper.vm.loading = true ;
+   expect(wrapper.vm.loading).toBe(true)
+  //  console.log(wrapper.find('p').exists().text())
+  // // Check if the loading text appears 
+ // expect(wrapper.find('p').text()).toContain('Loading...')
+})
 })

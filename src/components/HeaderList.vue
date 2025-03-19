@@ -1,8 +1,8 @@
 <script setup>
-import {ref} from 'vue'
-const headers = ['TO DO', 'IN PROGRESS']
-const t1=ref('')
-const t2=ref('')
+import { ref } from 'vue'
+const headers = ref(['TO DO', 'IN PROGRESS'])
+const t1 = ref('')
+const t2 = ref('')
 </script>
 
 <template>

@@ -1,14 +1,15 @@
 <script setup>
 import DragAndDrop from './components/DragAndDrop.vue'
 import User from './components/UserList.vue'
+import AppButton from './components/AppButton.vue'
 </script>
 
 <template>
   <div class="main">
- 
-<User />
-<DragAndDrop />
-</div>
+    <AppButton />
+    <User />
+    <DragAndDrop />
+  </div>
 </template>
 
 <style scoped>
@@ -17,13 +18,13 @@ media-player {
   height: 338px;
 }
 
-.input-box{
+.input-box {
   border: 5px dotted black;
   padding: 10px 5px;
   min-width: 600px;
   margin-bottom: 20px;
 }
-.main{
+.main {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
