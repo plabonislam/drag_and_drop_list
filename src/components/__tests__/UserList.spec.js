@@ -25,14 +25,9 @@ describe("UserList", () => {
   expect(wrapper.find("li").exists()).toBe(false);
   // Click the button
   await wrapper.find("button").trigger("click");
-  wrapper.vm.loading = true ;
-  // Check if the loading text appears
-  // expect(wrapper.find("p").text()).toBe("Loading...");
 
   // Wait for the users to load
   await flushPromises();
-
-  console.log(wrapper.vm.loading)
   // Check if the correct user data is displayed
   const listItems = wrapper.findAll("li");
   console.log(listItems.length)
@@ -46,9 +41,11 @@ describe("UserList", () => {
 it('updates loading state', async () => {
   const wrapper = mount(UserList)
   
-
   wrapper.vm.loading = true ;
-   expect(wrapper.vm.loading).toBe(true)
+  await wrapper.vm.$nextTick();
+  
+  // Check if the loading text appears
+  expect(wrapper.find("p").text()).toBe("Loading...");
   //  console.log(wrapper.find('p').exists().text())
   // // Check if the loading text appears 
  // expect(wrapper.find('p').text()).toContain('Loading...')
